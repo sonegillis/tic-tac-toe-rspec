@@ -10,20 +10,11 @@ describe Board do
             expect(board.full?).to eql(true)
         end
     end
-end
-
-describe Player do
-    describe "#play" do
-        it "should add a player mark on the board" do
+    describe "availability" do
+        it "should check if the occupied cell is marked as unavailable" do
             board = Board.new
-            player1=Player.new
-
-            input=gets
-            if input > 1 and input < 10 and board[input]!="*"
-              expect(board[input]).to be="X"
-            else
-              expect(!board.available.include).to eql(true)
-            end
+            board.pattern[0,0]="X"
+            expect(board.available.include "1"?).to eql(false)
         end
     end
 end
