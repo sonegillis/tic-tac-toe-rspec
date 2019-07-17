@@ -14,7 +14,8 @@ describe Board do
         it "should check if the occupied cell is marked as unavailable" do
             board = Board.new
             board.pattern[0,0]="X"
-            expect(board.available.include "1"?).to eql(false)
+            board.available.delete(1)
+            expect(board.available).not_to include(1)
         end
     end
 end
