@@ -19,3 +19,13 @@ describe Board do
         end
     end
 end
+describe Player do
+  describe "#play" do
+    it "places a marker and removes the cell from availables list" do
+      board=Board.new
+      player1=Player.new(player1, "X", board)
+      player1.play(1)
+      expect(board.available).not_to include(1)
+    end
+  end
+end
