@@ -28,4 +28,14 @@ describe Player do
       expect(board.available).not_to include(1)
     end
   end
+  describe "#check_win" do
+    it "checks if a player won the game" do
+      board=Board.new
+      player1=Player.new(player1, "X", board)
+      player1.play(1)
+      player1.play(2)
+      player1.play(3)
+      expect(player1.check_win).to eql(true)
+    end
+  end
 end
